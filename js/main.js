@@ -4,30 +4,33 @@ var modal = document.getElementById("modalItems")
 var closeButton = document.getElementsByClassName("close")[0]
 var modalButton = document.getElementById("modal-button")
 var addButton = document.getElementsByClassName('nv-households-button')[0]
+var windowTop, windowHeight, steps = [], chartHeight;
 
 /*
 Set variables for each of the forms in the modal
 ------------------------------
 */
-var members = [
-    {
-        firstName: 'Emp',
-        lastName: 'Loymee',
-        description: 'Lorem ipsum dolor sit amet',
-        fruit: 'Apple'
-    },
-    {
-        firstName: 'High',
-        lastName: 'Urmy',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        fruit: 'Orange'
-    },
-    {
-        firstName: 'Bru',
-        lastName: 'Hman',
-        description: 'Wassup wassup wassup',
-        fruit: 'Apple'
-    }
+var slides = [
+  {
+    copy: 'High',
+    image: 'image-1.jpg',
+    number: '1'
+  },
+  {
+    copy: 'fdf',
+    image: 'image-2.jpg',
+    number: '2'
+  },
+  {
+    copy: 'Hidfgdgfdggh',
+    image: 'image-3.jpg',
+    number: '3'
+  },
+  {
+    copy: 'fgdfgdf',
+    image: 'image-4.jpg',
+    number: '4'
+  }
 ]
 
 
@@ -35,62 +38,89 @@ var members = [
 EVENT LISTENERS: on click of a button, either the 'add new member' button or the 'close' button on the modal, change the visibility of the modal
 ------------------------------
 */
-addButton.addEventListener('click', (o) => {
-    modal.style.display = "block"
-})
-closeButton.addEventListener('click', (o) => {
-    modal.style.display = "none"
-})
-
-
-/*
-EVENT LISTENER: When adding a new member to the household, iterate over each of the form fields. find the field's value, and check if it's empty. if it is, alert the user.
-
-if not, add the value to an object. once you have iterated over each form field,  push the object to the list of objects and redraw
-------------------------------
-*/
-modalButton.addEventListener('click', (o) => {
-    var isFilled
-    var object = {}
-
-    for (i = 0; i < fields.length; i++) {
-        if(fields[i].value == "") {
-            isFilled = false
-            break
-        }
-        else {
-            object[fields[i].getAttribute('data-value')] = fields[i].value
-        }
-    }
-
-    if (isFilled == false) {
-        alert('Please make sure all of the fields are filled in')
-    } else {
-        members.push(object)
-        draw()
-
-        for (i = 0; i < fields.length; i++) {
-            fields[i].value = ""
-        }
-
-        modal.style.display = "none"
-    }
+window.addEventListener('scroll', (o) => {
+  setTimeout( function(){
+    onScroll()
+  },300)
 })
 
 
 /*
-METHOD: iterate over each of the objects in the members variable. insert each object's info into an html template, then combine the strings and serve as html
+METHOD: iterate over each of the objects in the members variable
 ------------------------------
 */
 let draw = () => {
-    var string = ""
-    members.forEach((i) => {
-        string = string + `<div class="nv-household">
-        <div class="db-name">` + i.firstName.toUpperCase() + " " + i.lastName.toUpperCase() + `</div>
-        <div>Description: ` + i.description + `</div>
-        <div>Favourite fruit: ` + i.fruit + `</div>
-        </div>`
-    })
-    bodyInfo.innerHTML = string
+  var string = ""
+  slides.forEach((i) => {
+    string = string +
+    `<div class="nv-household"
+    data-step="` + i.number + `">
+    <img src="css/me.png">
+    <span>` + i.copy + `</span>
+    </div>`
+  })
+  bodyInfo.innerHTML = string
+
+  setStep()
 }
+
+/*
+METHOD: iterate over each of the objects in the members variable
+------------------------------
+*/
+let onScroll = () => {
+  updateValues()
+  setStep()
+}
+
+/*
+METHOD: iterate over each of the objects in the members variable
+------------------------------
+*/
+let percentageOfHeight = (percentage) => {
+  return (windowHeight / 100) * percentage
+}
+
+
+/*
+METHOD: iterate over each of the objects in the members variable
+------------------------------
+*/
+let updateValues = () => {
+  windowTop = window.pageYOffset || document.documentElement.scrollTop;
+  windowHeight = $(window).height()
+}
+
+/*
+METHOD: iterate over each of the objects in the members variable
+------------------------------
+*/
+let highlightStates = (currentStep) => {
+  switch (currentStep) {
+    case 'intro':
+    $('.page__1').addClass('image__shown');
+    $('.page__2').removeClass('image__shown');
+    break
+
+    case 'skills':
+    $('.page__1').removeClass('image__shown');
+    $('.page__5').removeClass('image__shown');
+    break
+  }
+}
+
+/*
+METHOD: iterate over each of the objects in the members variable
+------------------------------
+*/
+let setStep = () => {
+  var stepToShow = null
+
+  $('.nv-household').each(function(i, el) {
+    if (windowTop > $(el).offset().top - percentageOfHeight(90)) {
+      stepToShow = $(el).data('step')
+    }
+  }
+)}
+
 draw()
