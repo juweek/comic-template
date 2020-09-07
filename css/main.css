@@ -1,0 +1,160 @@
+/*
+------------------------------
+this is the css to set up the defaults for the project like media breakpoints, colors, etc
+------------------------------
+*/
+/*
+------------------------------
+this is the css for the navbar and the footer
+------------------------------
+*/
+.nv-navbar,
+.nv-footer {
+  background-color: #dcdcdc;
+  display: flex;
+  justify-content: space-between;
+  height: 4rem;
+  line-height: 4rem;
+  padding: 0px 20px; }
+  .nv-navbar img,
+  .nv-footer img {
+    max-width: 100px;
+    vertical-align: middle; }
+
+/*
+------------------------------
+this is the css for the modal and the modal form fields
+------------------------------
+*/
+#modalItems {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  position: fixed;
+  top: 0px; }
+
+.modalItems--box {
+  padding: 20px;
+  margin: auto;
+  margin-top: 40px;
+  background-color: #fff;
+  color: #333;
+  width: 45%;
+  height: 460px; }
+  @media (max-width: 46.24em) {
+    .modalItems--box {
+      width: 80%;
+      height: 80vh; } }
+
+.close {
+  float: right; }
+  .close:hover, .close:focus {
+    text-decoration: none;
+    cursor: pointer; }
+  .close svg {
+    width: 40px; }
+
+.modalItems--form {
+  display: flex;
+  flex-direction: column; }
+  .modalItems--form .modalItems--form--field {
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 10px 4px; }
+
+/*
+------------------------------
+this is the css for the wrapper that surrounds the list of household members
+------------------------------
+*/
+.body-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh; }
+
+.nv-body {
+  padding: 20px 10px; }
+  @media (min-width: 46.25em) {
+    .nv-body {
+      padding: 0px 20px 40px;
+      margin: 40px auto;
+      width: 80%;
+      border: 1px solid #333;
+      box-shadow: 2px 2px; } }
+
+/*
+------------------------------
+css for the list of household members
+------------------------------
+*/
+.nv-households-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+  max-width: 90%;
+  justify-content: center; }
+
+.nv-household {
+  overflow: scroll;
+  flex-basis: 40%;
+  max-height: 160px;
+  margin: 3px;
+  padding: 10px;
+  border: 1px solid;
+  box-shadow: 2px 2px;
+  text-align: left; }
+  @media (min-width: 46.25em) {
+    .nv-household {
+      flex-basis: 30%;
+      margin: 6px 2px 6px 0px; } }
+  @media (min-width: 61.25em) {
+    .nv-household {
+      flex-basis: 21%;
+      margin: 10px 10px 10px 0px; } }
+  .nv-household .db-name {
+    font-weight: 700; }
+  .nv-household div {
+    margin-bottom: 4px; }
+
+/*
+------------------------------
+this is the combined css. import all the files and set some higher level settings
+------------------------------
+*/
+html {
+  width: 100%; }
+
+body {
+  margin: 0 auto;
+  background-color: #fff;
+  color: #333; }
+
+h2 {
+  font-size: 34px;
+  font-weight: bold; }
+
+h3 {
+  font-size: 20px; }
+
+/*
+------------------------------
+css of elements that will appear in multiple places
+------------------------------
+*/
+.nv-button {
+  background-color: #dcdcdc;
+  color: #333;
+  box-shadow: 3px 3px;
+  border: 1px;
+  padding: 10px 4px;
+  max-width: 200px;
+  margin: 0 auto;
+  text-align: center; }
+  .nv-button:hover, .nv-button:focus {
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 1px 1px; }
+
+/*# sourceMappingURL=main.css.map */
