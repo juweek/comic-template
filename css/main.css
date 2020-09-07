@@ -8,18 +8,37 @@ this is the css to set up the defaults for the project like media breakpoints, c
 this is the css for the navbar and the footer
 ------------------------------
 */
-.nv-navbar,
-.nv-footer {
-  background-color: #dcdcdc;
+.nv-navbar {
+  background-color: #fff;
+  padding-top: 30px;
   display: flex;
   justify-content: space-between;
-  height: 4rem;
-  line-height: 4rem;
-  padding: 0px 20px; }
-  .nv-navbar img,
-  .nv-footer img {
-    max-width: 100px;
-    vertical-align: middle; }
+  border-bottom: 1px solid #333;
+  min-height: 80vh;
+  position: relative; }
+  .nv-navbar img {
+    max-width: 100px; }
+  @media (max-width: 46.24em) {
+    .nv-navbar {
+      min-height: 90vh; } }
+
+.nv-navbar-brand {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Proza Libre';
+  position: absolute;
+  top: 5px;
+  right: 5px; }
+
+.nv-navbar-main-image img {
+  max-width: 45%;
+  position: absolute;
+  left: 25vw;
+  bottom: 0; }
+@media (max-width: 46.24em) {
+  .nv-navbar-main-image img {
+    max-width: 85%;
+    left: 8vw; } }
 
 /*
 ------------------------------
@@ -72,7 +91,8 @@ this is the css for the wrapper that surrounds the list of household members
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh; }
+  min-height: 100vh;
+  background-color: #F1F0EC; }
 
 .nv-body {
   padding: 20px 10px; }
@@ -129,7 +149,8 @@ html {
 body {
   margin: 0 auto;
   background-color: #fff;
-  color: #333; }
+  color: #333;
+  font-family: 'Proza Libre'; }
 
 h2 {
   font-size: 34px;
@@ -148,6 +169,7 @@ css of elements that will appear in multiple places
   color: #333;
   box-shadow: 3px 3px;
   border: 1px;
+  font-family: 'Neucha';
   padding: 10px 4px;
   max-width: 200px;
   margin: 0 auto;

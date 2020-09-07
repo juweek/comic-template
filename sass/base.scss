@@ -17,6 +17,7 @@ body {
     margin: 0 auto;
     background-color: $main-bg;
     color: $text-color;
+    font-family: 'Proza Libre';
 }
 
 h2 {
@@ -40,6 +41,7 @@ css of elements that will appear in multiple places
     color: $text-color;
     box-shadow: 3px 3px;
     border: 1px;
+    font-family: 'Neucha';
 
     &:hover,
     &:focus
