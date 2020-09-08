@@ -12,24 +12,29 @@ Set variables for each of the forms in the modal
 */
 var slides = [
   {
-    copy: 'High',
-    image: 'image-1.jpg',
+    copy: 'Hey Blake! Looking forward to speaking to you in a bit. I just wanted to share this little site about me, my experiences, and why I think Id be a great fit for this job',
+    image: 'camera.png',
     number: '1'
   },
   {
-    copy: 'fdf',
-    image: 'image-2.jpg',
+    copy: 'So Ive actually been on a screen call with Brilliant before. I talked to XXX, and while he was interested in my curiosity and skillset, he wasnt sure I had the necessary traits needed to address his teams organizaition needs. No beef, but I dont think I conveyed myself clearly to him. So think of this as my attempt with you',
+    image: 'hand.png',
     number: '2'
   },
   {
-    copy: 'Hidfgdgfdggh',
-    image: 'image-3.jpg',
+    copy: 'Technically speaking, Ive been making digital projects since college. I majored in computer science, and have worked as a ux designer, web designer, and data journalist for the past 4 years. Brilliant needs curious people, and at the core, thats who I am',
+    image: 'young.png',
     number: '3'
   },
   {
-    copy: 'fgdfgdf',
-    image: 'image-4.jpg',
+    copy: 'The Guardian is really where my talents have shone, though. For the past year, Ive been the only visual editor at the Guardian. Ive taken care of commissioniong artists, balancing budgets, and overall managing the visual production at the Guardian US. Not only did I have practice traditional journalsm skill sets that fit this role - learning and reading and speaking to experts to gather context - Ive also dealt with collaboration in large projects as well as the more routine ones',
+    image: 'ball.png',
     number: '4'
+  },
+  {
+    copy: 'So hopefully Ive piqued your interested and kept impressed you enough with this little comic trick. Looking forward to speaking with you.',
+    image: 'ball.png',
+    number: '5'
   }
 ]
 
@@ -41,7 +46,7 @@ EVENT LISTENERS: on click of a button, either the 'add new member' button or the
 window.addEventListener('scroll', (o) => {
   setTimeout( function(){
     onScroll()
-  },300)
+  },500)
 })
 
 
@@ -55,7 +60,7 @@ let draw = () => {
     string = string +
     `<div class="nv-household"
     data-step="` + i.number + `">
-    <img src="css/me.png">
+    <img src="css/` + i.image + `">
     <span>` + i.copy + `</span>
     </div>`
   })
